@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>showsend</title>
+    <link rel="stylesheet" href="../layui/css/layui.css">
+</head>
+<body class="layui-layout-body">
+<div class="layui-layout layui-layout-admin">
+    <div class="layui-header">
+        <div class="layui-logo">museum 博物馆</div>
+
+
+    </div>
+
+    <div class="layui-side layui-bg-black">
+        <div class="layui-side-scroll">
+            <!--           左侧区域-->
+        </div>
+    </div>
+
+    <div class="layui-body">
+        <!-- 内容主体区域 -->
+        <div style="padding: 15px;">
+<!--发布项目-->
+            <form class="layui-form layui-form-pane" action="send" method="post"
+                  enctype="multipart/form-data">
+                <div class="layui-form-item">
+                    <label class="layui-form-label">文本标题</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="title" lay-verify="required" autocomplete="off" placeholder="请输入标题" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">来源</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="resource" lay-verify="required" placeholder="请输入" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">公告类型</label>
+                    <div class="layui-input-block">
+                        <select name="categoryId">
+                            <option value=""></option>
+                            <option value="0">通知</option>
+                            <option value="1" selected="">展览</option>
+                            <option value="2">藏品</option>
+                            <option value="3">服务</option>
+                            <option value="4">知识</option>
+                            <option value="5">活动</option>
+                        </select>
+                    </div>
+                </div>
+                <!--                上传图片-->
+                <div class="layui-form-item">
+                    <div class="layui-form">
+                        <label >选择文件</label>
+                        <input type="file" id="file" name="file">
+                    </div>
+                </div>
+
+                <div class="layui-form-item layui-form-text">
+                    <label class="layui-form-label">文本域</label>
+                    <div class="layui-input-block">
+                        <textarea placeholder="请输入内容" class="layui-textarea" name="acontent"></textarea>
+                    </div>
+                </div>
+
+<!--                跳转-->
+                <div class="layui-form-item">
+                    <button class="layui-btn" type="submit">提交</button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+
+    <div class="layui-footer">
+        <!-- 底部固定区域 -->
+        © layui.com - 底部固定区域
+    </div>
+</div>
+<script src="../layui/layui.js"></script>
+<script>
+    //JavaScript代码区域
+    layui.use(['element','form'], function(){
+        var element = layui.element
+        ,form = layui.form
+        ,$ = layui.jquery;
+
+
+
+
+    });
+</script>
+</body>
