@@ -25,7 +25,7 @@
 
     <div class="layui-side layui-bg-gray">
         <div class="layui-side-scroll">
-<!--           左侧区域-->
+            <!--           左侧区域-->
             <a href="/showcollection">发布通知</a>
             <a href="/showsend">上传文物</a>
         </div>
@@ -34,14 +34,14 @@
     <div class="layui-body">
         <!-- 内容主体区域 -->
         <div style="padding: 15px;">
-         <!--分页内容部分-->
-            <a th:each="a:${alist}" th:href="'detail?id='+${a.id}">
-                <div> <p class="layui-elem-quote">
-                    <span th:text="${a.title}" name="title">越王勾践</span>
-                    <span th:text="${a.createdStr}" name="created" style="float: right">铜虎</span></p></div>
-            </a>
-            <!--分页内容部分-->
-
+            <hr>
+            <h1 th:text="${announcement.title}"></h1>
+           <span>发布时间：</span>
+            <span th:text="${announcement.created}"></span>
+            <span>来源：</span><span th:text="${announcement.resource}"></span>
+            <span>点击：</span><span th:text="${announcement.viewCount}"></span>
+            <br>
+            <p th:text="${announcement.acontent}"></p>
         </div>
     </div>
 

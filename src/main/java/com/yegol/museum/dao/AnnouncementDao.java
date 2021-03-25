@@ -72,4 +72,27 @@ public class AnnouncementDao {
     }
 
 
+    public Announcement findById(String id) {
+        //获取连接
+        try(Connection conn = DBUtils.getConn()){
+            String sql = "select id ,title,resource,acontent,viewCount,created ,category_id from announcement where id = ?";
+            PreparedStatement ps=conn.prepareStatement(sql);
+            ps.setInt(1,Integer.parseInt(id));
+            ResultSet rs = ps.executeQuery();
+            if(rs.next()){
+                int oid = rs.getInt(1);
+                String title = rs.getString(2);
+                String recourse = rs.getString(3);
+                String acontent = rs.getString(4);
+                int viewCount = rs.getInt(5);
+                long created = rs.getLong(6);
+                int categoryId = rs.getInt(7);
+                return new Announcement(oid,title,recourse,acontent,viewCount,created,categoryId);
+            }
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return null;
+    }
 }
