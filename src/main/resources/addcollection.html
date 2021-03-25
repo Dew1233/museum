@@ -25,10 +25,13 @@
         <!-- 内容主体区域 -->
         <div style="padding: 15px;">
             <!--发布项目-->
-            <form class="layui-form layui-form-pane" action="send" method="post"
+            <form class="layui-form layui-form-pane" action="addcollection" method="post"
                   enctype="multipart/form-data">
                 <div class="layui-form-item">
-                    <label class="layui-form-label">文本标题</label>
+                    登记藏品
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">文物名称</label>
                     <div class="layui-input-block">
                         <input type="text" name="title" lay-verify="required" autocomplete="off" placeholder="请输入标题" class="layui-input">
                     </div>
@@ -40,16 +43,11 @@
                     </div>
                 </div>
                 <div class="layui-form-item">
-                    <label class="layui-form-label">公告类型</label>
+                    <label class="layui-form-label">文物类型</label>
                     <div class="layui-input-block">
-                        <select name="categoryId">
-                            <option value=""></option>
-                            <option value="0">通知</option>
-                            <option value="1" selected="">展览</option>
-                            <option value="2">藏品</option>
-                            <option value="3">服务</option>
-                            <option value="4">知识</option>
-                            <option value="5">活动</option>
+                        <select name="collectionId">
+                            <option th:each="l:${list}" th:value="${l.id}" th:text="${l.name}">青铜器</option>
+<!--                            <option th:each="c:${list}" th:value="${c.id}" th:text="${c.name}"></option>-->
                         </select>
                     </div>
                 </div>
@@ -62,7 +60,7 @@
                 </div>
 
                 <div class="layui-form-item layui-form-text">
-                    <label class="layui-form-label">文本域</label>
+                    <label class="layui-form-label">文物介绍</label>
                     <div class="layui-input-block">
                         <textarea placeholder="请输入内容" class="layui-textarea" name="acontent"></textarea>
                     </div>

@@ -6,3 +6,9 @@ create table announcement(id int primary key auto_increment,title varchar(50),re
 viewCount int,category_id int,created bigint) charset = utf8;
 写发布通知页面中~~~~
 要写一个选择类型
+
+create table collection(id int primary key auto_increment,title varchar(50),resource varchar(50) ,acontent text,
+viewCount int,collection_id int,created bigint) charset = utf8;
+文物表
+文物类别
+create table colcategory(id int primary key auto_increment,name varchar(20)) charset=utf8;

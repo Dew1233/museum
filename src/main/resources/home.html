@@ -14,7 +14,7 @@
         <!-- 头部区域（可配合layui已有的水平导航） -->
         <ul class="layui-nav layui-layout-right" >
             <li class="layui-nav-item layui-nav-itemed">
-                <a class="" href="javascript:;">首页</a>
+                <a class="" href="/home">首页</a>
             </li>
             <li th:each="c:${list}" class="layui-nav-item">
                 <a th:href="'home?cid='+${c.id}" th:text="${c.name}">活动</a>
@@ -23,7 +23,7 @@
 
     </div>
 
-    <div class="layui-side layui-bg-black">
+    <div class="layui-side layui-bg-gray">
         <div class="layui-side-scroll">
 <!--           左侧区域-->
         </div>
@@ -32,6 +32,12 @@
     <div class="layui-body">
         <!-- 内容主体区域 -->
         <div style="padding: 15px;">
+         <!--分页内容部分-->
+           <div> <p th:each="a:${alist}"class="layui-elem-quote">
+               <span th:text="${a.title}" name="title">越王勾践</span>
+               <span th:text="${a.createdStr}" name="created" style="float: right">铜虎</span></p></div>
+            <!--分页内容部分-->
+
 
         </div>
     </div>
@@ -44,7 +50,7 @@
 <script src="../layui/layui.js"></script>
 <script>
     //JavaScript代码区域
-    layui.use('element', function(){
+    layui.use('element','table', function(){
         var element = layui.element;
 
     });

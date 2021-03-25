@@ -22,6 +22,7 @@ public class HomeServlet extends HttpServlet {
        req.setCharacterEncoding("utf-8");
         //        得到传递过来的分类id
         String cid = req.getParameter("cid");
+
         Context context = new Context();
 //       分类
         CategoryDao dao = new CategoryDao();

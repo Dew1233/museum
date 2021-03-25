@@ -28,6 +28,9 @@
             <form class="layui-form layui-form-pane" action="send" method="post"
                   enctype="multipart/form-data">
                 <div class="layui-form-item">
+                    <label class="layui-form-label">新闻上传</label>
+                </div>
+                <div class="layui-form-item">
                     <label class="layui-form-label">文本标题</label>
                     <div class="layui-input-block">
                         <input type="text" name="title" lay-verify="required" autocomplete="off" placeholder="请输入标题" class="layui-input">
@@ -43,23 +46,11 @@
                     <label class="layui-form-label">公告类型</label>
                     <div class="layui-input-block">
                         <select name="categoryId">
-                            <option value=""></option>
-                            <option value="0">通知</option>
-                            <option value="1" selected="">展览</option>
-                            <option value="2">藏品</option>
-                            <option value="3">服务</option>
-                            <option value="4">知识</option>
-                            <option value="5">活动</option>
+                            <option th:each="c:${list}" th:value="${c.id}" th:text="${c.name}"></option>
                         </select>
                     </div>
                 </div>
-                <!--                上传图片-->
-                <div class="layui-form-item">
-                    <div class="layui-form">
-                        <label >选择文件</label>
-                        <input type="file" id="file" name="file">
-                    </div>
-                </div>
+
 
                 <div class="layui-form-item layui-form-text">
                     <label class="layui-form-label">文本域</label>

@@ -16,9 +16,10 @@ public class AnnouncementDao {
         List<Announcement> list= new ArrayList<>();
         //获取连接
         try(Connection conn = DBUtils.getConn()){
-            String sql = "select id,title,created from announcement where id = ?";
+            String sql = "select id,title,created from announcement where category_id = ? limit 0,10";
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setInt(1,Integer.parseInt(cid));
+//            获取页数
             ResultSet rs = ps.executeQuery();
             while(rs.next()){
                 int aid = rs.getInt(1);
@@ -31,18 +32,38 @@ public class AnnouncementDao {
         }
         return list;
     }
+//    查找出所有的
+    public List<Announcement> findAll() {
+        List<Announcement> list = new ArrayList<>();
+        //获取连接
+        try(Connection conn = DBUtils.getConn()){
+            String sql = "select id,title,created from announcement";
+            Statement s = conn.createStatement();
+            ResultSet rs = s.executeQuery(sql);
+            while (rs.next()){
+                int id= rs.getInt(1);
+                String title = rs.getString(2);
+                long create =  rs.getLong(3);
+                list.add(new Announcement(id,title,create));
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return list;
+    }
 
+
+//    上传的时候插入通知类新闻
     public void insert(Announcement a) {
         //获取连接
         try(Connection conn = DBUtils.getConn()){
-            String sql = "insert into announcement values(null,?,?,?,0,?,?,?)";
+            String sql = "insert into announcement values(null,?,?,?,0,null,?,?)";
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setString(1,a.getTitle());
             ps.setString(2,a.getResource());
             ps.setString(3,a.getAcontent());
-            ps.setString(4,a.getUrl());
-            ps.setLong(5,a.getCreated());
-            ps.setInt(6,a.getCategoryId());
+            ps.setLong(4,a.getCreated());
+            ps.setInt(5,a.getCategoryId());
             ps.executeUpdate();
             System.out.println("发布完成");
         }catch (Exception e){
@@ -50,22 +71,5 @@ public class AnnouncementDao {
         }
     }
 
-    public List<Announcement> findAll() {
-        List<Announcement> list = new ArrayList<>();
-       //获取连接
-       try(Connection conn = DBUtils.getConn()){
-           String sql = "select id,title,created from announcement";
-           Statement s = conn.createStatement();
-           ResultSet rs = s.executeQuery(sql);
-           while (rs.next()){
-               int id= rs.getInt(1);
-               String title = rs.getString(2);
-               long create =  rs.getLong(3);
-               list.add(new Announcement(id,title,create));
-           }
-       }catch (Exception e){
-           e.printStackTrace();
-       }
-        return list;
-    }
+
 }

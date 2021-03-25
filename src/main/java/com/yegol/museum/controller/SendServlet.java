@@ -33,27 +33,11 @@ public class SendServlet extends HttpServlet {
         String acontent = req.getParameter("acontent");
         String categoryId = req.getParameter("categoryId");
         System.out.println(title+":"+resource+":"+acontent+":"+categoryId);
-        //        上传图片
-        Part part = req.getPart("file");
-        System.out.println(part);
-        String info = part.getHeader("content-disposition");
-//        System.out.println(info);
-        String suffix =  info.substring(info.lastIndexOf("."),info.length()-1);
-        String fileName = UUID.randomUUID()+suffix;
-        String path = req.getServletContext().getRealPath("images/");
-//        得到日期
-        SimpleDateFormat f = new SimpleDateFormat("yyyy/MM/dd");
-        Date date = new Date();
-        String dateStr = f.format(date);
-//        System.out.println("日期："+dateStr);
-//        System.out.println("完整路径："+path+dateStr);
-        new File(path+dateStr).mkdirs();
-        part.write(path+dateStr+fileName);
+
 
 //        参数封装到通知类中
         Announcement a = new Announcement(0,title,resource,acontent,
-                0,"images/"+dateStr+fileName,
-                System.currentTimeMillis(),
+                0,System.currentTimeMillis(),
                 Integer.parseInt(categoryId));
         AnnouncementDao dao = new AnnouncementDao();
         dao.insert(a);
