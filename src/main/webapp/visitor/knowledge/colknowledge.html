@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>首页</title>
+    <link rel="stylesheet" href="layui/css/layui.css">
+</head>
+<body>
+<div class="layui-container">
+    <!--头部-->
+    <div class="layui-header">
+        <ul class="layui-nav" lay-filter="">
+            <li class="layui-nav-item"><a href="">首页</a></li>
+            <li class="layui-nav-item layui-this"><a href="">通知</a></li>
+            <li class="layui-nav-item">
+                <a href="">展览</a>
+                <dl class="layui-nav-child"> <!-- 二级菜单 -->
+                    <dd><a href="">常设展览</a></dd>
+                    <dd><a href="">特设展览</a></dd>
+                    <dd><a href="">交流展览</a></dd>
+                </dl></li>
+            <li class="layui-nav-item">
+                <a href="javascript:;">藏品</a>
+                <dl class="layui-nav-child"> <!-- 二级菜单 -->
+                    <dd><a href="">虚拟展厅</a></dd>
+                    <dd><a href="">国宝欣赏</a></dd>
+                </dl>
+            </li>
+            <li class="layui-nav-item">
+                <a href="javascript:;">知识</a>
+                <dl class="layui-nav-child"> <!-- 二级菜单 -->
+                    <dd><a href="">历史知识</a></dd>
+                    <dd><a href="">文物知识</a></dd>
+                </dl>
+            </li>
+            <li class="layui-nav-item"><a href="">活动</a></li>
+        </ul>
+    </div>
+    <div class="layui-body"></div>
+</div>
+</body>
+<script src="layui/layui.js"></script>
+<script>
+    //JavaScript代码区域
+    layui.use(['element','$'], function(){
+        var element = layui.element,
+            $ = layui.$;
+
+    });
+</script>
+</html>

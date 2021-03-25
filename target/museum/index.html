@@ -5,56 +5,67 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>layout 管理系统大布局 - Layui</title>
     <link rel="stylesheet" href="layui/css/layui.css">
+    <style>
+        .layui-layout-admin .layui-header{
+            background-color: #fff;
+            color: #000000;
+        }
+        .layui-nav .layui-nav-item a{
+            color: #000000;
+        }
+        .layui-nav .layui-nav-item a:hover{
+            color: #000000;
+        }
+        .layui-nav-bar, .layui-nav .layui-this:after, .layui-nav-tree .layui-nav-itemed:after{
+            background-color: #c73131;
+        }
+    </style>
 </head>
 <body class="layui-layout-body">
 <div class="layui-layout layui-layout-admin">
-    <div class="layui-header">
-        <div class="layui-logo">museum 博物馆</div>
-        <!-- 头部区域（可配合layui已有的水平导航） -->
-        <ul class="layui-nav layui-layout-right">
-            <li class="layui-nav-item layui-this"><a href="/home">首页</a></li>
-            <li class="layui-nav-item"><a href="/announce">通知</a></li>
-            <li class="layui-nav-item">
-                <a href="/exhibition">展览</a>
-                <dl class="layui-nav-child">
-                    <dd><a href="">特设展览</a></dd>
-                    <dd><a href="">常设展览</a></dd>
-                    <dd><a href="">交流展览</a></dd>
-                </dl>
-            </li>
-            <li class="layui-nav-item"><a href="/collection">藏品</a></li>
-            <li class="layui-nav-item"><a href="/server">服务</a>
-                <dl class="layui-nav-child">
-                    <dd><a href="">旅游商店</a></dd>
-                    <dd><a href="">楚歌楚舞</a></dd>
-                </dl></li>
-            <li class="layui-nav-item"><a href="/konwledge">知识</a>
-                <dl class="layui-nav-child">
-                    <dd><a href="">历史知识</a></dd>
-                    <dd><a href="">文物知识</a></dd>
-                </dl></li>
-            <li class="layui-nav-item"><a href="/activity">活动</a></li>
-        </ul>
-
-    </div>
-
-    <div class="layui-side layui-bg-black">
-        <div class="layui-side-scroll">
-            <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+<!--    主体内容区-->
+    <div class="layui-container">
+        <div class="layui-header">
+            <div class="layui-logo">
+                <img src="images/logo.png" alt="">
+            </div>
+            <!-- 头部区域（可配合layui已有的水平导航） -->
+            <ul class="layui-nav layui-layout-right">
+                <li class="layui-nav-item layui-this"><a href="/home">首页</a></li>
+                <li class="layui-nav-item"><a href="/announce">通知</a></li>
+                <li class="layui-nav-item">
+                    <a href="/exhibition">展览</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="/exhibition/special">特设展览</a></dd>
+                        <dd><a href="">常设展览</a></dd>
+                        <dd><a href="">交流展览</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item"><a href="/collection">藏品</a></li>
+                <li class="layui-nav-item"><a href="/server">服务</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="">旅游商店</a></dd>
+                        <dd><a href="">楚歌楚舞</a></dd>
+                    </dl></li>
+                <li class="layui-nav-item"><a href="/konwledge">知识</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="">历史知识</a></dd>
+                        <dd><a href="">文物知识</a></dd>
+                    </dl></li>
+                <li class="layui-nav-item"><a href="/activity">活动</a></li>
+            </ul>
 
         </div>
-    </div>
 
-    <div class="layui-body">
-        <!-- 内容主体区域 -->
-        <div style="padding: 15px;">
+        <div class="layui-body">
+            <!-- 内容主体区域 -->
+            <div style="padding: 15px;">
 
+            </div>
         </div>
-    </div>
 
-    <div class="layui-footer">
-        <!-- 底部固定区域 -->
-        © layui.com - 底部固定区域
+    </div>
+    <!--    主体内容区end-->
     </div>
 </div>
 <script src="layui/layui.js"></script>

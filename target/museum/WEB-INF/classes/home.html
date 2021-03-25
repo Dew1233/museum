@@ -25,6 +25,16 @@
 
     <div class="layui-side layui-bg-gray">
         <div class="layui-side-scroll">
+            <form class="layui-form" action="/reg" method="get">
+                <div class="layui-form-item">
+                    <label >用户名</label>
+                        <input type="text" name="name" lay-verify="title" autocomplete="off" placeholder="请输入用户名" class="layui-input">
+                </div>
+                <div class="layui-form-item">
+                    <label >密码</label>
+                        <input type="text" name="password" lay-verify="title" autocomplete="off" placeholder="请输入密码" class="layui-input">
+                </div>
+            </form>
 <!--           左侧区域-->
             <a href="/showcollection">发布通知</a>
             <a href="/showsend">上传文物</a>
